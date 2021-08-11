@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="/ERS_Project_1/resources/cssfiles/reimb.css" rel="stylesheet" id="bootstrap-css">
+<link href="../cssfiles/reimb.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>EXPENSE REIMBURSEMENT SYSTEM</title>
+<style>
+input[type=submit],[type=button] {
+ 	padding:5px 20px;
+  border:1px solid #439F07;
+  text-shadow:0 -1px 0 rgba(0,0,0,0.4);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    inset 0 10px 10px rgba(255,255,255,0.1);
+  border-radius:0.3em;
+  background: rgb(138,199,84); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(138,199,84,1) 0%, rgba(121,201,50,1) 45%, rgba(102,190,24,1) 48%, rgba(57,150,2,1) 97%, rgba(102,174,63,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(138,199,84,1)), color-stop(45%,rgba(121,201,50,1)), color-stop(48%,rgba(102,190,24,1)), color-stop(97%,rgba(57,150,2,1)), color-stop(100%,rgba(102,174,63,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(138,199,84,1) 0%,rgba(121,201,50,1) 45%,rgba(102,190,24,1) 48%,rgba(57,150,2,1) 97%,rgba(102,174,63,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(138,199,84,1) 0%,rgba(121,201,50,1) 45%,rgba(102,190,24,1) 48%,rgba(57,150,2,1) 97%,rgba(102,174,63,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(138,199,84,1) 0%,rgba(121,201,50,1) 45%,rgba(102,190,24,1) 48%,rgba(57,150,2,1) 97%,rgba(102,174,63,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(138,199,84,1) 0%,rgba(121,201,50,1) 45%,rgba(102,190,24,1) 48%,rgba(57,150,2,1) 97%,rgba(102,174,63,1) 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ac754', endColorstr='#66ae3f',GradientType=0 ); /* IE6-9 */
+ color:#fff;
+  float:right;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:15px;
+  outline: none;
+}
+
+
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
+  <div class="container justify-content-lg-between justify-content-center align-content-center">
+<!--   remove onclick attribute to activate -->
+  <a class="navbar-brand mr-0 mb-1 mb-lg-0" href="#" onclick="return false;">
+REVATURE ERS APP
+
+</a>
+  <div class="navbar-expand mb-1" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://revature.com/our-story/">ABOUT US</a>
+      </li>
+      <li class="nav-item ml-2 ml-sm-4">
+        <a class="nav-link" href="#contact">CONTACT</a>
+      </li>
+      <li class="nav-item ml-2 ml-md-4">
+        <a class="nav-link" href="http://localhost:8080/ERS_Project_1/">Log-Out</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <div class="shadow"></div>
+</nav>
+<!-- 3D CUBE EFFECT -->
+<div class="cube"><div class="black-outline"></div></div>
+
+
+<!-- MAIN SECTION WITH CARDS -->
+<main class="content">
+<!--   ABOUT -->
+  <div id="about" class="card" style="width:60%;">
+    <div class="card-body" >    
+      
+      	<div class="main">
+		<form action="request" method="post">
+        <div id="wel"><h2 id="welcome"></h2></div>
+    		<h4 style="width:100em; text-align: left;" id="h4">Request your Reimbursement </h4>
+  			<div id="inset">
+	  			<p>
+	    		 <label for="employeeId">EMPLOYEE ID</label>
+   	 			<input type="text" placeholder="Employee id" required id="employeeId" disabled/>
+                   
+                    
+				</p>
+                <p>
+                    <label for="requestAmount">YOUR REQUEST AMOUNT $  </label> 
+                    <input type="number" min="5.00" max="10000.00" step="0.01" class="zone1" id="amount" required />
+                </p>
+                <p>
+                    <label for="reimbType">REIMBURSEMENT TYPE </label>
+                       <select id="reimb_type" name="expense"  tabindex="2">
+                            <option value="1">Food</option>
+                            <option value="2">Logding</option>
+                            <option value="3">Travel</option>
+                            <option value="4">Other</option>
+                           
+                        </select>
+                </p>
+                
+
+              
+                    <label for="floatingTextarea">DESCRIPTIONS</label>
+                    <textarea class="form-control" placeholder="Leave a description here" id="description" > </textarea>  
+                <br/>
+  				<p>
+				    <label for="receipt">UPLOAD A RECEIPT</label>
+				    <input type="file" id="fileinput" multiple="false" accept="image/*"/>
+  				</p>
+				  <input type="button" id="viewTickets" value="View your past tickets"/>
+				  	
+	  <table id="myVillTable" class="table">
+		<thead>
+			<tr>
+				<th scope="col">Submitted date</th>
+				<th scope="col">Amount request</th>
+				<th scope="col">Description</th>
+				<th scope="col">Type of reimbursement</th>
+				<th scope="col">Actual status</th>
+				
+			</tr>
+		</thead>
+		<tbody id="villTableBody">
+		
+		</tbody>
+	  </table>
+				  
+                  <fieldset  id = "managerField" class="landscape_nomargin" style="min-width: 0;padding:    .35em .625em .75em!important;margin:0 2px;border: 1px solid silver!important;">
+                    <legend style="border-bottom: none;width: inherit;!important;padding:inherit;" class="legend">MANAGER RESERVED AREA</legend>
+                   
+                            <p>
+                                <label for="id">MANAGER ID</label>
+                                   <input type="text" placeholder="Manager id" id="managerId" required/>
+                            </p>
+                           
+                            <label for="userName">CHANGE STATUS</label>
+                           
+                                <input type="radio" name="status" id="pending" checked value=3>
+                                <label for="pending">Pending</label>
+                                <input type="radio" name="status" id="approved" value =3>
+                                <label for="approved">Approved</label>
+                                <input type="radio" name="status" id="denied" value =3>
+                                <label for="denied">Denied</label>
+                              </p>
+                   
+                  </fieldset>
+ 			 </div>
+ 	 <br/>
+			  <p class="p-container">
+			   
+			    <input type="submit" value="Submit" id="submitRequest"/>
+			  </p>
+		</form>
+	  </div>
+      
+
+    </div>
+  </div>
+  <script type="text/javascript" src="http://localhost:8080/ERS_Project_1/resources/jsfiles/xhttpobject.js"></script>
+  <script type="text/javascript" src="http://localhost:8080/ERS_Project_1/resources/jsfiles/requestReimbursement.js"></script>
+</body>
+</html>
